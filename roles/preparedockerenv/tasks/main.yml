@@ -1,0 +1,12 @@
+# Preparing Docker Environemtn to Build Own Docker Environment 
+
+- name: Installing Docker Engine 
+  dnf: name=docker-engine state=present
+
+# version 1.10 on Fedora24 does not work with docker hence use 1.9.0 (Error given Minimum version, From Google) 
+- name: Installing docker-py module
+  pip: name=docker-py version=1.9.0
+
+- name: Installing libselinux-python module
+  dnf: name=libselinux-python state=present
+

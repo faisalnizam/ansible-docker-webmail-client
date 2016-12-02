@@ -1,0 +1,5 @@
+Maintained By Faisal Nizam @ Penta
+For Some Fun and Debug Output how the machine gets started docker with sysctrl Run the Image seperately like 
+docker run -ti -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 80:80 -p 3306:3306 reit_raw
+
+

@@ -1,0 +1,5 @@
+---
+# Using Raw Module Due to Python Dependencies.  
+- name: Install All Necessary Packages
+  raw: dnf -y -e0 -d0 install python python-dnf
+

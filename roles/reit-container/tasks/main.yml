@@ -1,0 +1,29 @@
+--- 
+# Crete Docker Image From Dockerfile Created Earlier 
+# Loads of Changes in it but initial needs to be created. 
+# This can later be integrate with Jenkins etc to create cusom images with code release. 
+#
+    
+  - name: Move Contents to Temp Folder 
+    file: path=/opt/docker-build state=directory 
+     
+  - name: Copy All Necessary Files to Tmp to Build Docker 
+    copy: > 
+         src=roles/reit-container/dockerfiles/ 
+         dest=/opt/docker-build
+         force=yes 
+
+  - template: src=roles/reit-container/templates/config.inc.php.j2  dest=/opt/docker-build/config.inc.php
+   # copy: src={{ item }} dest=/tmp/docker-build 
+   # with_fileglob: 
+   # - roles/reit-container/dockerfiles/*  
+
+
+  - name: Building the Docker Image ... Building An Image From Scratch , Obviosuly it takes time... Time to look at monitoring docker ps -a  
+    docker_image: 
+        path: /opt/docker-build/
+        name: reit_docker_image
+
+  - name: Removing build directory
+    file: path=/opt/docker-build/ state=absent
+

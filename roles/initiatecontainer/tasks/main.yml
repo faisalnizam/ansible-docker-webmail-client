@@ -1,0 +1,21 @@
+---
+
+ - name: Setup Container Build 
+   docker:
+    name: roundcube
+    image: reit_docker_image
+    state: started
+    detach: yes
+    ports:
+    - "80:80"
+   
+ 
+   # Can Also Be Started as  docker: image=reitfedora hostname=testmachine name=webmail
+   #  - name: Setup Web Container 
+   #    docker_container:
+   #      name: reitwebmailfe
+   #      image: reit_raw
+   #      hostname: reitwebmailfe
+   #      command: sleep 600
+
+

@@ -1,0 +1,27 @@
+
+- name: Configuration For Containers 
+  hosts: localhost
+  #remote_user: faisalna
+  connection: local 
+  vars: 
+      imap_host: gmail.com
+      imap_port: 993
+
+
+  roles:
+    - prepareenv
+    - preparedockerenv
+    - reit-container
+    - initiatecontainer
+
+
+
+
+# Run Test Command On Container 
+#- hosts: docker
+#  sudo: yes
+#  remote_user: faisalna
+#  tasks: 
+#    - name: hello
+#      shell: echo "hello world" 
+
